@@ -42,7 +42,7 @@ export class UserService {
   }
 
   getAvatar(avatar_path: string | null){
-    return avatar_path ? `${this.storagePath}/users/${avatar_path}` : 'assets/images/no-image.jpg';
+    return avatar_path ? `${this.storagePath}/users/${avatar_path}` : 'assets/angular/assets/images/no-image.jpg';
   }
 
   getFollowers(){
