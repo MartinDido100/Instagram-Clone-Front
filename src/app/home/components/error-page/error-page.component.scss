@@ -1,0 +1,20 @@
+.error-text{
+    display: flex;
+    flex-direction: column;
+    gap: 2.2em;
+    margin-top: 2.5em;
+    padding: 0 1em;
+}
+
+h2{
+    text-align: center;
+    font-size: 22px;
+}
+
+p{
+    text-align: center;
+}
+
+a{
+    color: rgb(0, 55, 107);
+}

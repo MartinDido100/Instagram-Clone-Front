@@ -1,0 +1,48 @@
+<div class="or">
+
+    <div class="line"></div>
+    <p class="letter-o">O</p>
+    <div class="line"></div>
+
+</div>
+
+<form [formGroup]="registerForm" autocomplete="off" (ngSubmit)="register()">
+
+    <label class="form-label">
+        <span class="label-text" [class.writedInputText]="changeClass('email')">Número de celular o correo electrónico</span>
+        <input type="text" name="email" formControlName="email" [class.writedInput]="changeClass('email')" class="form-input">
+        <span class="sprite-bg cross" *ngIf="validateField('email')"></span>
+        <span class="sprite-bg tick" *ngIf="!validateField('email') && registerForm.get('email')?.touched"></span>
+    </label>
+
+    <label class="form-label">
+        <span class="label-text" [class.writedInputText]="changeClass('name')">Nombre completo</span>
+        <input type="text" name="name" formControlName="name" [class.writedInput]="changeClass('name')" class="form-input">
+        <span class="sprite-bg cross" *ngIf="validateField('name')"></span>
+        <span class="sprite-bg tick" *ngIf="!validateField('name') && registerForm.get('name')?.touched"></span>
+    </label>
+
+    <label class="form-label">
+        <span class="label-text" [class.writedInputText]="changeClass('username')">Nombre de usuario</span>
+        <input type="text" name="name" formControlName="username" [class.writedInput]="changeClass('username')" class="form-input">
+        <span class="sprite-bg cross" *ngIf="validateField('username')"></span>
+        <span class="sprite-bg tick" *ngIf="!validateField('username') && registerForm.get('username')?.touched"></span>
+    </label>
+
+    <label class="form-label">
+        <span class="label-text" [class.writedInputText]="changeClass('password')">Contraseña</span>
+        <input type="password" name="password" formControlName="password" [class.writedInput]="changeClass('password')" #passInput class="form-input">
+        <div class="pass-buttons">
+
+            <span class="sprite-bg cross" *ngIf="validateField('password')"></span>
+            <span class="sprite-bg tick" *ngIf="!validateField('password') && registerForm.get('password')?.touched"></span>
+            <span class="show-pass" *ngIf="registerForm.value['password'].length > 0" (click)="changePassView()">{{ showPassText }}</span>
+
+        </div>
+    </label>
+
+    <button class="formButton" [class.disabledButton]="checkButtonClass()" [class.loading]="cargando">Registrarte <div class='spinner' *ngIf="cargando"></div></button>
+
+</form>
+
+<p class="bottom-text">Al registrarte, aceptas nuestras <span>Condiciones</span>, la <br> <span>Política de datos</span> y la <span>Política de cookies.</span></p>

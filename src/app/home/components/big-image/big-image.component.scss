@@ -1,0 +1,195 @@
+.container{
+    background-color: #fff;
+    display: flex;
+    height: 95vh;
+    @media screen and (max-width: 1185px) {
+        height: 70vw;
+    }
+
+    & .image{
+        flex-basis: 55em;
+        background: #000;
+        position: relative;
+    }
+
+    & .image img{
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+    }
+
+    & .comment-box{
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+    & .top{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 1em;
+        border-bottom: 1px solid #efefef;
+    }
+
+    & .avatar{
+        height: 32px;
+        width: 32px;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+    }
+
+    & .pointer{
+        cursor: pointer;
+    }
+
+    & .username{
+        display: flex;
+        align-items: center;
+        gap: 14px;
+    }
+
+    & .username-text{
+        font-weight: 600;
+    }
+
+    & .comments{
+        height: 785px;
+        padding: 1em;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.6em;
+        overflow-y: scroll;
+        border-bottom: 1px solid #efefef;
+    }
+
+    & .comments::-webkit-scrollbar {
+        width: 0;
+    }
+
+    & .comment{
+        display: flex;
+        gap: .3em;
+    }
+
+    & .comment-avatar{
+        margin-right: .5em;
+    }
+
+    & .user{
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    & .bottom{
+        display: flex;
+        flex-direction: column;
+        padding-top: 6px;
+    }
+
+    & .actions{
+        display: flex;
+        justify-content: space-between;
+        padding: .5em 1em;
+    }
+
+    & .left-actions{
+        display: flex;
+        gap: 1em;
+    }
+
+    & .image-info{
+        display: flex;
+        flex-direction: column;
+        font-weight: 600;
+        gap: .4em;
+        padding: 0 1em;
+        border-bottom: 1px solid #efefef;
+        padding-bottom: 14px;
+    }
+
+    & .likes{
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    & .time-ago{
+        font-size: 10px;
+        line-height: 12px;
+        color: #8e8e8e;
+    }
+
+    & .comment-bar{
+        padding: 6px 1em;
+    }
+
+    & .comment-form{
+        width: 100%;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        gap: 1em;
+    }
+
+    & .comment-input{
+        width: 100%;
+        outline: none;
+        border: none;
+        font-size: 14px;
+        height: 18px;
+    }
+
+    & button{
+        background: none;
+        border: none;
+        color: #0095f6;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    & .disabled-button{
+        opacity: .3;
+        cursor: initial;
+    }
+
+    & .like-heart{
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        height: 128px;
+        position: absolute;
+        width: 128px;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        pointer-events: none;
+        opacity: 0;
+    }
+
+    & .disabled-button{
+        opacity: .5;
+        cursor: initial;
+    }
+
+}
+
+.animate{
+    animation-duration: 1000ms;
+    animation-name: like-heart-animation;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes like-heart-animation{ 
+    0% { opacity:0; transform:scale(0); }
+    15% { opacity:.9; transform:scale(1.2); }
+    30% { transform:scale(.95); }
+    80% { opacity:.9; transform:scale(1); }
+    100% {opacity:0; transform:scale(0);}
+}

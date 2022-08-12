@@ -1,0 +1,7 @@
+<app-upload *ngIf="openUpload == 'open'" (onCloseUpload)="onCloseUpload($event)"></app-upload>
+<header class="header">
+    <app-header (onUpload)="onUpload($event)"></app-header>
+</header>
+<main [class.modalMain]="openUpload == 'open'">
+    <router-outlet></router-outlet>
+</main>

@@ -1,0 +1,43 @@
+<form [formGroup]="loginForm" autocomplete="off" (ngSubmit)="login()">
+
+    <label class="form-label">
+        <span class="label-text" [class.writedInputText]="changeClass('username')">Teléfono, usuario o correo electrónico</span>
+        <input type="text" name="username" formControlName="username" [class.writedInput]="changeClass('username')" class="form-input">
+    </label>
+
+    <label class="form-label">
+        <span class="label-text" [class.writedInputText]="changeClass('password')">Contraseña</span>
+        <input type="password" name="password" formControlName="password" [class.writedInput]="changeClass('password')" #passInput class="form-input">
+        <span class="show-pass" *ngIf="loginForm.value['password'].length > 0" (click)="changePassView()">{{ showPassText }}</span>
+    </label>
+
+    <button class="formButton" [class.disabledButton]="checkButtonClass()" [class.loading]="cargando">Iniciar sesion <div class='spinner' *ngIf="cargando"></div></button>
+
+</form>
+
+<div class="or">
+
+    <div class="line"></div>
+    <p class="letter-o">O</p>
+    <div class="line"></div>
+
+</div>
+
+<div class="after-or">
+
+    <div class="facebook">
+
+        <span class="fb-icon"></span>
+        <span class="fb-text">Iniciar sesión con Facebook</span>
+
+    </div>
+
+    <div *ngIf="error">
+
+        <p class="error-text">Credenciales incorrectas. <br> Compruebalas</p>
+
+    </div>
+
+    <span class="forgot-text">¿Olvidaste tu contraseña?</span>
+
+</div>

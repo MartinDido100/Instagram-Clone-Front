@@ -1,0 +1,235 @@
+.profile-cont{
+    width: 100%;
+    height: calc(100vh - 3.688em);
+    display: flex;
+    justify-content: center;
+
+    & .profile{
+        max-width: 975px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    & .profile-header{
+        width: 100%;
+        display: flex;
+        gap: 3.6em;
+        padding-left: 3em;
+        padding-top: 1.4em;
+        @media screen and (max-width: 735px){
+            flex-direction: column;
+            gap: 1em;
+        }
+    }
+
+    & .avatar{
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        -webkit-user-drag: none;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+    }
+
+    & .profile-avatar{
+        width: 150px;
+        height: 150px;
+
+        @media screen and (max-width: 735px) {
+            width: 70px;
+            height: 70px;
+        }
+    }
+
+    & .profile-info{
+        display: flex;
+        flex-direction: column;
+        padding-top: .7em;
+        gap: 20px;
+    }
+
+    & .info-top{
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+
+    & h2{
+        font-weight: 300;
+    }
+
+    & .info-config{
+        padding: 2.5px 8px;
+        border: 1px solid #dbdbdb;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    & .info-numbers{
+        display: flex;
+        gap: 40px;
+    }
+
+    & .bold{
+        font-weight: 600;
+    }
+
+    & .line{
+        width: 100%;
+        border-top: 2px solid #dbdbdb;
+        margin-top: 44px;
+        margin-bottom: 1.5em;
+    }
+
+    & .images{
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(auto-fit, 305px);
+        grid-gap: 30px;
+        min-height: 120.66px;
+        @media screen and (max-width: 975px){
+            grid-gap: 8px;
+            grid-template-rows: repeat(auto-fill, calc(100vw / 3));
+        }
+    }
+
+    & .image{
+        position: relative;
+        height: 100%;
+        width: 100%;
+
+        @media screen and (max-width: 920px){
+            height: auto;
+        }
+
+        & img{
+            width: 100%;
+            height: 100%;
+        }
+
+        &:hover{
+
+            .grey-bg{
+                visibility: visible;
+            }
+
+        }
+
+    }
+
+    & .grey-bg{
+        width: 100%;
+        position: absolute;
+        background: rgba(0, 0, 0, 0.3);
+        top: 0;
+        height: 100%;
+        cursor: pointer;
+        visibility: hidden;
+    }
+
+    & ul{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        gap: 30px;
+    }
+
+    & li{
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+    & .image-heart{
+        background-position: -340px -333px;
+        width: 19px;
+        height: 19px;
+    }
+
+    & .image-comments{
+        background-position: -382px -333px;
+        width: 19px;
+        height: 19px;
+    }
+
+    & .image-number{
+        font-weight: 600;
+        font-size: 1.2rem;
+    }
+
+    & .big-image{
+        position: fixed;
+        background-color: rgba(0,0,0,.65);
+        width: 100%;
+        height: 100%;
+        top: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    & .big-i-componenet{
+        width: 90%;
+        max-width: 90em;
+    }
+
+    & .cross{
+        position: absolute;
+        padding: 16px;
+        cursor: pointer;
+        top: 0;
+        right: 0;
+    }
+
+    & .toClose-modal{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: -1000;
+    }
+
+   & .info-button{
+        width: 95px;
+        padding: 5px 9px;
+        border-radius: 4px;
+        text-align: center;
+        font-size: 14px;
+        color: #fff;
+        font-weight: 900;
+        cursor: pointer;
+        user-select: none;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+        -o-border-radius: 4px;
+    }
+
+    & .info-follow{
+        background: var(--primary-blue);
+    }
+
+    & .info-following{
+        background: none;
+        border: 1px solid rgb(219, 219, 219);
+        color: #222;
+    }
+
+}
+
+.no-user{
+    width: 100%;
+    height: calc(100vh - 3.688em);
+    display: flex;
+    justify-content: center;
+}

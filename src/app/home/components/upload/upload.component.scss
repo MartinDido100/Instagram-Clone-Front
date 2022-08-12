@@ -1,0 +1,143 @@
+.background{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0,0,0,.65);
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cross{
+    position: absolute;
+    padding: 16px;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+}
+
+.toClose-modal{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+}
+
+.upload-form-cont{
+    background: #fff;
+    z-index: 10000;
+    width: 90%;
+    max-width: 50em;
+    height: 841px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+
+    & h2{
+        border-bottom: 1px solid rgb(219,219,219);
+        font-size: 14px;
+        text-align: center;
+        line-height: 3em;
+        font-weight: 500;
+    }
+
+}
+
+#file{
+    display: none;
+}
+
+.select-button,.upload-button{
+    background: var(--primary-blue);
+    padding: 5px 9px;
+    font-size: 14px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+
+.upload-button{
+    border: #fff;
+    cursor: pointer;
+    padding: 6.6px 9px;
+}
+
+.title-input{
+    outline: none;
+    border: none;
+    padding: .4em .7em;
+    width: 100%;
+    background: #eee;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+
+#text-field{
+    flex-grow: 1;
+}
+
+.upload-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.upload-form-field{
+    display: flex;
+    flex-direction: column;
+    gap: .9em;
+    align-items: center;
+    cursor: pointer;
+}
+
+img{
+    width: 100%;
+    max-height: 700px;
+    object-fit: contain;
+}
+
+.upload{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    display: flex;
+    width: 80%;
+}
+
+.uploading-spinner{
+    border: 4px solid var(--primary-blue);
+    width: 70px;
+    height: 70px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 50%;
+    border-left-color: #eee;
+    position: absolute;
+  
+    animation: spin 1s ease infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+}

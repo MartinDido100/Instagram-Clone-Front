@@ -1,0 +1,52 @@
+<section class="profile-cont" *ngIf="profile.ok && !loading">
+    <div class="profile">
+        <header class="profile-header">
+            <div class="profile-avatar">
+                <img [src]="getAvatar(profile.avatar_path)" class="avatar">
+            </div>
+            <div class="profile-info">
+                <div class="info-top">
+                    <h2 class="info-username">{{ username }}</h2>
+                    <div class="info-config" *ngIf="username === user.username">Editar perfil</div>
+                    <div class="info-follow info-button" (click)="follow()" *ngIf="!checkFollow() && username !== user.username">Seguir</div>
+                    <div class="info-following info-button" *ngIf="checkFollow() && username !== user.username" (click)="unfollow()">Siguiendo</div>
+                </div>
+                <div class="info-numbers">
+                    <span class="images-number"><span class="bold">{{ profile.images?.length }}</span> publicaciones</span>
+                    <span class="followers"><span class="bold">{{ profile.followers }}</span> seguidores</span>
+                    <span class="followed"><span class="bold">{{ profile.follows }}</span> seguidos</span>
+                </div>
+                <div class="info-name bold">
+                    <span>{{profile.name}}</span>
+                </div>
+            </div>
+        </header>
+        <div class="line"></div>
+        <div class="images">
+            <div class="image" *ngFor="let image of profile.images" (click)="imageModal = image">
+                <img [src]="getImage(image.image_path)" [alt]="image.titulo">
+                <div class="grey-bg">
+                    <ul>
+                        <li>
+                            <span class="sprite-bg image-heart"></span>
+                            <span class="image-number">19</span>
+                        </li>
+                        <li>
+                            <span class="sprite-bg image-comments"></span>
+                            <span class="image-number">3</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="big-image" *ngIf="imageModal !== null">
+        <div class="toClose-modal" (click)="imageModal = null"></div>
+        <app-big-image class="big-i-componenet" [image]="imageModal" (onUsernameClick)="imageModal = null"></app-big-image>
+        <div class="cross" (click)="imageModal = null"><svg aria-label="Cerrar" class="fg7vo5n6 lrzqjn8y" color="#ffffff" fill="#ffffff" height="18" role="img" viewBox="0 0 48 48" width="18"><title>Cerrar</title><path clip-rule="evenodd" d="M41.8 9.8L27.5 24l14.2 14.2c.6.6.6 1.5 0 2.1l-1.4 1.4c-.6.6-1.5.6-2.1 0L24 27.5 9.8 41.8c-.6.6-1.5.6-2.1 0l-1.4-1.4c-.6-.6-.6-1.5 0-2.1L20.5 24 6.2 9.8c-.6-.6-.6-1.5 0-2.1l1.4-1.4c.6-.6 1.5-.6 2.1 0L24 20.5 38.3 6.2c.6-.6 1.5-.6 2.1 0l1.4 1.4c.6.6.6 1.6 0 2.2z" fill-rule="evenodd"></path></svg></div>
+    </div>
+</section>
+
+<div class="no-user" *ngIf="!profile.ok && !loading">
+    <app-error-page></app-error-page>
+</div>

@@ -1,0 +1,71 @@
+<section class="login-layout">
+
+    <div class="forms-cont">
+
+        <div class="form">
+
+            <h1 class="ig-text">Instagram</h1>
+
+            <div class="preform" *ngIf="activeForm === 'register'" >
+                <h3 class="preform-text">Regístrate para ver fotos y videos <br> de tus amigos.</h3>
+                <button class="formButton flex">
+                    <span class="sprite-bg white-fb"></span>
+                    <span>Iniciar sesión con Facebook</span>
+                </button>
+            </div>
+
+
+            <app-login *ngIf="activeForm === 'login'" class="form-component login-form"></app-login>
+            <app-register *ngIf="activeForm === 'register'" class="form-component register-form"></app-register>
+
+        </div>
+
+        <div class="other-form">
+
+            <p *ngIf="activeForm === 'register'">¿Tienes una cuenta? <span class="changeForm" (click)="changeForm('login')">Inicia sesión</span></p>
+            <p *ngIf="activeForm === 'login'">¿No tienes cuenta? <span class="changeForm" (click)="changeForm('register')">Registrate</span></p>
+
+        </div>
+        
+        <div class="download">
+    
+            <h4>Descargar app</h4>
+    
+            <div class="stores">
+                
+                <a href="https://apps.apple.com/app/instagram/id389801252?vt=lo" target="_BLANK">
+                    <img src="../../../../assets/images/app-store.png" alt="App Store">
+                </a>
+
+                <a href="https://play.google.com/store/apps/details?id=com.instagram.android&referrer=utm_source%3Dinstagramweb&utm_campaign=loginPage&ig_mid=A0690999-3529-4A44-9241-068CE52894AA&utm_content=lo&utm_medium=badge" target="_BLANK">
+                    <img src="../../../../assets/images/play-store.png" alt="Play Store">
+                </a>
+
+    
+            </div>
+    
+        </div>
+
+    </div>
+
+    <div class="links">
+
+        <ul class="up-links">
+
+            <li *ngFor="let link of upLinks">
+                {{ link }}
+            </li>
+
+        </ul>
+
+        <ul class="down-links">
+
+            <li *ngFor="let link of downLinks">
+                {{ link }}
+            </li>
+
+        </ul>
+
+    </div>
+
+</section>

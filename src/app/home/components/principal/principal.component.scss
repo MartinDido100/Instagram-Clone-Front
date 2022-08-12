@@ -1,0 +1,241 @@
+.dashboard{
+    width: 100%;
+    height: calc(100vh - 3.688em);
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1.4fr 1fr;
+
+    @media screen and (max-width: 1125px){
+        grid-template-columns: 1fr;
+    }
+
+    & .big-image{
+        position: fixed;
+        background-color: rgba(0,0,0,.65);
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    & .big-i-componenet{
+        width: 90%;
+        max-width: 90em;
+    }
+
+    & .cross{
+        position: absolute;
+        padding: 16px;
+        cursor: pointer;
+        top: 0;
+        right: 0;
+    }
+
+    & .toClose-modal{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: -1000;
+    }
+
+    & .images{
+        padding-right: .5em;
+        padding-top: 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 24px;
+        padding-bottom: 2em;
+        @media screen and (max-width: 1125px){
+            align-items: center;
+        }
+    }
+
+    & .image{
+        max-width: 38.375em;
+        width: 85%;
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        border: 1px solid #dbdbdb
+    }
+
+    & .top{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #efefef;
+        padding: 0 1em;
+    }
+
+    & .username{
+        height: 60px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+    }
+
+    & .username-text{
+        color: #262626;
+    }
+
+    & .avatar{
+        height: 32px;
+        width: 32px;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+    }
+
+    & .dots{
+        cursor: pointer;
+    }
+
+    .img-cont{
+        width: 100%;
+        position: relative;
+        max-height: 40em;
+
+        & img{
+            width: 100%;
+            height: 100%;
+            -webkit-user-drag: none;
+        }
+    }
+
+    & .actions{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.875em 1em .5em;
+    }
+
+    & .heart,.comment-bubble,.send,.red-heart{
+        width: 2.5em;
+        &:hover{
+            opacity: .8;
+        }
+    }
+
+    & .left-actions{
+        display: flex;
+    }
+    
+    & .left-actions,.save-img{
+        cursor: pointer;
+    }
+
+    & .comments{
+        padding: 0 1em;
+    }
+
+    & .likes{
+        line-height: 18px;
+        margin-bottom: .3em;
+        & span{
+            font-size: 14px;
+            color: #262626;
+            font-weight: 600;
+        }
+    }
+
+    & .title-username{
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+    & .title-content{
+        font-size: 14px;
+    }
+
+    & .all-comments-btn{
+        color: #8e8e8e;
+        font-size: 14px;
+        line-height: 18px;
+        margin-bottom: 4px;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    & .uploaded-at{
+        font-size: 10px;
+        color: #8e8e8e;
+        line-height: 18px;
+        margin-bottom: 16px;
+    }
+
+    & .red-heart:hover{
+        opacity: 1;
+    }
+
+    & .comment-box{
+        padding: 6px 16px;
+        border-top: 1px solid #efefef;
+    }
+
+    & .comment-form{
+        width: 100%;
+        height: 40px;
+        display: flex;
+        align-items: center;
+    }
+
+    & .comment-input{
+        width: 100%;
+        outline: none;
+        border: none;
+        font-size: 14px;
+        height: 18px;
+    }
+
+    & button{
+        background: none;
+        border: none;
+        color: #0095f6;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    & .disabled-button{
+        opacity: .3;
+        cursor: initial;
+    }
+
+    & .like-heart{
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        height: 128px;
+        position: absolute;
+        width: 128px;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        opacity: 0;
+    }
+
+}
+
+.animate{
+    animation-duration: 1000ms;
+    animation-name: like-heart-animation;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes like-heart-animation{ 
+    0% { opacity:0; transform:scale(0); }
+    15% { opacity:.9; transform:scale(1.2); }
+    30% { transform:scale(.95); }
+    80% { opacity:.9; transform:scale(1); }
+    100% {opacity:0; transform:scale(0);}
+}

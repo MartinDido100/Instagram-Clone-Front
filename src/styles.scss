@@ -1,1 +1,166 @@
-/* You can add global styles to this file, and also import other style files */
+@import './assets/styles/resets';
+
+*{
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+
+:root{
+    --primary-blue: #0095f6;
+    --grey-font-color: #8e8e8e;
+}
+
+body{
+    background: #fafafa;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.form-label{
+    width: 100%;
+    cursor: text;
+    position: relative;
+}
+
+.label-text{
+    user-select: none;
+    font-size: 12px;
+    left: 10px;
+    line-height: 36px;
+    position: absolute;
+    transition: all .2s;
+    -webkit-transition: transform .1s ease-out;
+    -moz-transition: transform .1s ease-out;
+    -ms-transition: transform .1s ease-out;
+    -o-transition: transform .1s ease-out;
+}
+
+.show-pass{
+    position: absolute;
+    right: 8px;
+    line-height: 36px;
+    top: 0;
+    cursor: pointer;
+    user-select: none;
+    font-size: 14px;
+    color: #262626;
+    font-weight: 600;
+}
+
+.formButton{
+    width: 100%;
+    border: none;
+    padding: .5em 0;
+    background: var(--primary-blue);
+    color: #eee;
+    font-weight: 600;
+    margin-top: .7em;
+    cursor: pointer;
+    position: relative;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+
+    &:active{
+        opacity: .7;
+    }
+
+}
+
+.disabledButton{
+    opacity: .3;
+    cursor: default;
+
+    &:active{
+        opacity: .3;
+    }
+}
+
+.form-input{
+    width: 100%;
+    height: 36px;
+    line-height: 18px;
+    border: 1px solid #dbdbdb;
+    outline: none;
+    border-radius: 3px;
+    padding: 9px 0 7px 8px;
+    font-size: 14px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    background-color: #fafafa;
+}
+
+.writedInputText{
+    transform: scale(.83333) translateY(-10px);
+    transform-origin: left;
+}
+
+.writedInput{
+    padding: 14px 0 2px 8px;
+    font-size: 12px;
+}
+
+.sprite-bg{
+    background-image: url('assets/images/sprites.png');
+}
+
+.or{
+
+    margin-top: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 1em;
+
+    & .line{
+        width: 111px;
+        background: #dbdbdb;
+        height: 1px;
+    }
+
+    & .letter-o{
+        font-size: .8rem;
+        font-weight: 600;
+    }
+
+}
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    width: 20px;
+    height: 20px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 50%;
+    border-left-color: #eee;
+    position: absolute;
+  
+    animation: spin 1s ease infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+}
+
+.loading{
+    color: transparent;
+}
+
+.opacity{
+    &:active{
+        opacity: .7;
+    }
+}
