@@ -4,7 +4,7 @@ import { FormGroup } from '@angular/forms';
 import { catchError, map, of } from 'rxjs';
 import { tap } from 'rxjs';
 import { environment } from '../../../environments/environment';
-import { AuthResponse, Usuario } from '../../interfaces/user.interface';
+import { AuthResponse, updatedUser, Usuario } from '../../interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -85,6 +85,12 @@ export class AuthService {
     return this.http.post(url,{});
   }
 
-  
+  updateProfile(data: FormData){
+    return this.http.post<updatedUser>(`${this.baseUrl}/user/update`, data).pipe(
+      tap(resp => {
+        this.cargarUsuario(resp.user!)
+      })
+    );
+  }
 
 }

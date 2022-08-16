@@ -51,6 +51,8 @@ export interface Profile{
     ok: boolean,
     id: number,
     name: string,
+    surname: string,
+    email: string,
     images: DashboardItem[],
     follows: number,
     followers: number,

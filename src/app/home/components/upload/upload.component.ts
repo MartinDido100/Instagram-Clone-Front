@@ -12,7 +12,6 @@ export class UploadComponent implements OnInit {
 
   @Output() onCloseUpload = new EventEmitter<string>();
   imagenPrevia: any
-  files: any = [];
   uploading: boolean = false;
 
   uploadForm: FormGroup = this.fb.group({
@@ -34,7 +33,6 @@ export class UploadComponent implements OnInit {
       this.uploadForm.patchValue({
         fileSource: imagen
       });
-      this.files.push(imagen);
       this.blobFile(imagen).then((res: any) => {
         this.imagenPrevia = res.base;
 

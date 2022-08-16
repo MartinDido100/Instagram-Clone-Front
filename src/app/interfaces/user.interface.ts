@@ -20,3 +20,8 @@ export interface Usuario{
     email?: string,
     avatar_path: string
 }
+
+export interface updatedUser{
+    ok: boolean,
+    user: Usuario
+}

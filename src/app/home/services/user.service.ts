@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from '../../auth/services/auth.service';
-import { Usuario, UserResponse } from '../../interfaces/user.interface';
+import { Usuario, UserResponse, updatedUser } from '../../interfaces/user.interface';
 import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs';
@@ -75,6 +75,24 @@ export class UserService {
 
   searchUsers(query: string){
     return this.http.get<Usuario[]>(`${this.baseUrl}/user/search/${query.trim()}`);
+  }
+
+  updateProfile(data: FormData){
+    return this.http.post<updatedUser>(`${this.baseUrl}/user/update`, data).pipe(
+      tap(resp => {
+        this._profile = {
+          ok: resp.ok,
+          name: resp.user.name,
+          surname: resp.user.surname,
+          email: resp.user.email!,
+          avatar_path: resp.user.avatar_path,
+          id: resp.user.id,
+          follows: this._profile.follows,
+          followers: this._profile.followers,
+          images: this._profile.images,
+        }
+      })
+    );
   }
 
 }

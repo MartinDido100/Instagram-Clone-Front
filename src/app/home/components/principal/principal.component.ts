@@ -82,6 +82,8 @@ export class PrincipalComponent implements OnInit {
     return index != -1 ? true : false;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.is.getDashboard().subscribe();
+  }
 
 }

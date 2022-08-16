@@ -7,7 +7,7 @@
             <div class="profile-info">
                 <div class="info-top">
                     <h2 class="info-username">{{ username }}</h2>
-                    <div class="info-config" *ngIf="username === user.username">Editar perfil</div>
+                    <div class="info-config" *ngIf="username === user.username" (click)="openEdit()">Editar perfil</div>
                     <div class="info-follow info-button" (click)="follow()" *ngIf="!checkFollow() && username !== user.username">Seguir</div>
                     <div class="info-following info-button" *ngIf="checkFollow() && username !== user.username" (click)="unfollow()">Siguiendo</div>
                 </div>
@@ -44,6 +44,44 @@
         <div class="toClose-modal" (click)="imageModal = null"></div>
         <app-big-image class="big-i-componenet" [image]="imageModal" (onUsernameClick)="imageModal = null"></app-big-image>
         <div class="cross" (click)="imageModal = null"><svg aria-label="Cerrar" class="fg7vo5n6 lrzqjn8y" color="#ffffff" fill="#ffffff" height="18" role="img" viewBox="0 0 48 48" width="18"><title>Cerrar</title><path clip-rule="evenodd" d="M41.8 9.8L27.5 24l14.2 14.2c.6.6.6 1.5 0 2.1l-1.4 1.4c-.6.6-1.5.6-2.1 0L24 27.5 9.8 41.8c-.6.6-1.5.6-2.1 0l-1.4-1.4c-.6-.6-.6-1.5 0-2.1L20.5 24 6.2 9.8c-.6-.6-.6-1.5 0-2.1l1.4-1.4c.6-.6 1.5-.6 2.1 0L24 20.5 38.3 6.2c.6-.6 1.5-.6 2.1 0l1.4 1.4c.6.6.6 1.6 0 2.2z" fill-rule="evenodd"></path></svg></div>
+    </div>
+    <div class="edit-profile" *ngIf="edit">
+        <div class="toClose-modal" (click)="edit = false"></div>
+        <div class="edit-form-cont">
+            <div class="spinner updating-spinner" *ngIf="updating"></div>
+            <form class="edit-form" [formGroup]="updateForm" (ngSubmit)="updateProfile()" *ngIf="!updating">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" name="nombre" class="edit-form-input" formControlName="name">
+                </div>
+
+                <div class="form-group">
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" name="apellido" class="edit-form-input" formControlName="surname">
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" class="edit-form-input" formControlName="username">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" class="edit-form-input" formControlName="email">
+                </div>
+
+                <div class="form-group avatar-group">
+                    <label for="avatar">
+                        <span class="select-avatar-button">Seleccionar avatar de tu computadora</span>
+                        <input type="file" name="avatar" id="avatar" class="edit-form-input select-avatar" (input)="onFileSelected($event)" formControlName="file">
+                    </label>
+                    <img [src]="avatarPrevio" *ngIf="avatarPrevio" class="preview-avatar">
+                </div>
+
+                <button type="submit" (ngSubmit)="updateProfile()">Actualizar</button>
+            </form>
+        </div>
+        <div class="cross" (click)="edit = false"><svg aria-label="Cerrar" class="fg7vo5n6 lrzqjn8y" color="#ffffff" fill="#ffffff" height="18" role="img" viewBox="0 0 48 48" width="18"><title>Cerrar</title><path clip-rule="evenodd" d="M41.8 9.8L27.5 24l14.2 14.2c.6.6.6 1.5 0 2.1l-1.4 1.4c-.6.6-1.5.6-2.1 0L24 27.5 9.8 41.8c-.6.6-1.5.6-2.1 0l-1.4-1.4c-.6-.6-.6-1.5 0-2.1L20.5 24 6.2 9.8c-.6-.6-.6-1.5 0-2.1l1.4-1.4c.6-.6 1.5-.6 2.1 0L24 20.5 38.3 6.2c.6-.6 1.5-.6 2.1 0l1.4 1.4c.6.6.6 1.6 0 2.2z" fill-rule="evenodd"></path></svg></div>
     </div>
 </section>
 

@@ -167,7 +167,7 @@
         font-size: 1.2rem;
     }
 
-    & .big-image{
+    & .big-image,.edit-profile{
         position: fixed;
         background-color: rgba(0,0,0,.65);
         width: 100%;
@@ -179,16 +179,91 @@
         justify-content: center;
     }
 
-    & .big-i-componenet{
+    & .big-i-componenet,.edit-form-cont{
         width: 90%;
         max-width: 90em;
+    }
+
+    .edit-form-cont{
+        max-width: 30em;
+        background: #fff;
+    }
+
+    .edit-form{
+        width: 100%;
+        padding: 1.5em;
+        display: flex;
+        gap: 1em;
+        flex-direction: column;
+    }
+
+    .form-group{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .edit-form-input{
+        outline: none;
+        border: none;
+        padding: 0.4em 0.7em;
+        width: 100%;
+        background: #eee;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -ms-border-radius: 3px;
+        -o-border-radius: 3px;
+    }
+
+    .select-avatar{
+        display: none;
+    }
+
+    .select-avatar-button{
+        background: var(--primary-blue);
+        padding: 5.5px 0.7em;
+        cursor: pointer;
+        font-size: 14px;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -ms-border-radius: 3px;
+        -o-border-radius: 3px;
+    }
+
+    .updating-spinner{
+        width: 5em;
+        height: 5em;
+        border-color: var(--primary-blue);
+        border-left-color: #eee;
+    }
+
+    button{
+        border: #fff;
+        cursor: pointer;
+        padding: 6.6px 9px;
+        background: var(--primary-blue);
+        color: #fff;
+    }
+
+    .avatar-group{
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .preview-avatar{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
     }
 
     & .cross{
         position: absolute;
         padding: 16px;
         cursor: pointer;
-        top: 0;
+        top: 0; 
         right: 0;
     }
 
