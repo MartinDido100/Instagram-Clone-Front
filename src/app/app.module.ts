@@ -15,7 +15,7 @@ import { AuthInterceptor } from './auth/interceptors/auth.interceptor';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     {
